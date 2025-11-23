@@ -1,0 +1,416 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Chakra Color System */
+:root {
+  --chakra-root: #C72C35;
+  --chakra-sacral: #E97132;
+  --chakra-solar: #F5C645;
+  --chakra-heart: #65B891;
+  --chakra-throat: #5BA3DA;
+  --chakra-third-eye: #8B7AB8;
+  --chakra-crown: #E6C7EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--chakra-crown), var(--chakra-third-eye));
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--chakra-third-eye), var(--chakra-throat));
+}
+
+/* Gradient text effect */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    var(--chakra-root) 0%,
+    var(--chakra-sacral) 15%,
+    var(--chakra-solar) 30%,
+    var(--chakra-heart) 45%,
+    var(--chakra-throat) 60%,
+    var(--chakra-third-eye) 75%,
+    var(--chakra-crown) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 10s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Slow spin animation */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Reverse spin animation */
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 15s linear infinite;
+}
+
+/* Pulse glow effect */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 3s infinite;
+}
+
+/* Chakra flow animation */
+@keyframes chakra-flow {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.chakra-flow {
+  background: linear-gradient(
+    45deg,
+    var(--chakra-root),
+    var(--chakra-sacral),
+    var(--chakra-solar),
+    var(--chakra-heart),
+    var(--chakra-throat),
+    var(--chakra-third-eye),
+    var(--chakra-crown)
+  );
+  background-size: 400% 400%;
+  animation: chakra-flow 20s ease infinite;
+}
+
+/* Sacred geometry patterns */
+.sacred-pattern {
+  background-image:
+    radial-gradient(circle at 20% 50%, transparent 10%, rgba(230, 199, 235, 0.05) 10.5%),
+    radial-gradient(circle at 80% 50%, transparent 10%, rgba(139, 122, 184, 0.05) 10.5%),
+    radial-gradient(circle at 50% 20%, transparent 10%, rgba(91, 163, 218, 0.05) 10.5%),
+    radial-gradient(circle at 50% 80%, transparent 10%, rgba(101, 184, 145, 0.05) 10.5%);
+  background-size: 100px 100px;
+}
+
+/* Energy ripple effect */
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.ripple {
+  animation: ripple 2s ease-out infinite;
+}
+
+/* Morphing border */
+@keyframes morph-border {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+}
+
+.morph-border {
+  animation: morph-border 8s ease-in-out infinite;
+}
+
+/* Glowing text */
+.glow-text {
+  text-shadow:
+    0 0 10px currentColor,
+    0 0 20px currentColor,
+    0 0 30px currentColor;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Card hover effect */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+}
+
+/* Parallax layers */
+.parallax {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Energy flow lines */
+@keyframes energy-flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.energy-line {
+  stroke-dasharray: 10 5;
+  animation: energy-flow 3s linear infinite;
+}
+
+/* Mystical blur effect */
+.mystical-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Chakra color utilities */
+.chakra-root { color: var(--chakra-root); }
+.chakra-sacral { color: var(--chakra-sacral); }
+.chakra-solar { color: var(--chakra-solar); }
+.chakra-heart { color: var(--chakra-heart); }
+.chakra-throat { color: var(--chakra-throat); }
+.chakra-third-eye { color: var(--chakra-third-eye); }
+.chakra-crown { color: var(--chakra-crown); }
+
+.bg-chakra-root { background-color: var(--chakra-root); }
+.bg-chakra-sacral { background-color: var(--chakra-sacral); }
+.bg-chakra-solar { background-color: var(--chakra-solar); }
+.bg-chakra-heart { background-color: var(--chakra-heart); }
+.bg-chakra-throat { background-color: var(--chakra-throat); }
+.bg-chakra-third-eye { background-color: var(--chakra-third-eye); }
+.bg-chakra-crown { background-color: var(--chakra-crown); }
+
+/* Cosmic dust particles */
+@keyframes float-particle {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100px, -1000px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.cosmic-particle {
+  animation: float-particle 15s linear infinite;
+}
+
+/* Sacred geometry mandala */
+.mandala {
+  filter: drop-shadow(0 0 20px currentColor);
+  animation: spin-slow 30s linear infinite;
+}
+
+/* Ethereal glow */
+.ethereal-glow {
+  box-shadow:
+    0 0 20px rgba(230, 199, 235, 0.3),
+    0 0 40px rgba(139, 122, 184, 0.2),
+    0 0 60px rgba(91, 163, 218, 0.1);
+}
+
+/* Holographic effect */
+@keyframes holographic {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.holographic {
+  background: linear-gradient(
+    45deg,
+    #C72C35,
+    #E97132,
+    #F5C645,
+    #65B891,
+    #5BA3DA,
+    #8B7AB8,
+    #E6C7EB
+  );
+  background-size: 400% 400%;
+  animation: holographic 10s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Energy burst */
+@keyframes energy-burst {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.energy-burst {
+  animation: energy-burst 1s ease-out;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+}
