@@ -1,43 +1,520 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vib3code Blog</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Space Grotesk', sans-serif;
-        background-color: #050505;
-        color: #ffffff;
-        overflow-x: hidden;
-      }
-      /* Hide scrollbar for Chrome, Safari and Opera */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
-      /* Hide scrollbar for IE, Edge and Firefox */
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "d3": "https://aistudiocdn.com/d3@^7.9.0"
-  }
-}
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ancestral Wisdom Healing LLC - Body work, massage, energy work, and sound healing with Beth Connelly. Integrating ancient wisdom with modern practices.">
+    <meta name="keywords" content="massage therapy, energy healing, sound healing, body work, holistic healing, ancestral wisdom">
+    <meta name="author" content="Beth Connelly">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Ancestral Wisdom Healing LLC">
+    <meta property="og:description" content="Transform through ancient wisdom and modern healing practices">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ancestralwisdomhealing.com">
+    
+    <title>Ancestral Wisdom Healing | Body Work & Sound Healing with Beth Connelly</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D4A574'/><path d='M50 20 L50 80 M20 50 L80 50' stroke='%234A3728' stroke-width='3'/></svg>">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/morphing-experience.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="nav" role="navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <svg viewBox="0 0 100 100" class="logo-svg">
+                    <circle cx="50" cy="50" r="40" class="logo-circle"/>
+                    <path d="M50 20 L50 80 M20 50 L80 50" class="logo-cross" stroke-width="3"/>
+                </svg>
+                <span class="logo-text">Ancestral Wisdom</span>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#journey" class="nav-link">Journey</a></li>
+                <li><a href="#philosophy" class="nav-link">Philosophy</a></li>
+                <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero" role="banner">
+        <div class="hero-background">
+            <div class="hero-shape hero-shape-1"></div>
+            <div class="hero-shape hero-shape-2"></div>
+            <div class="hero-shape hero-shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="hero-title-line">Ancestral</span>
+                <span class="hero-title-line">Wisdom</span>
+                <span class="hero-title-line">Healing</span>
+            </h1>
+            <p class="hero-subtitle">Transform through ancient wisdom and modern healing practices</p>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">Begin Your Journey</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Healing Modalities</h2>
+                <p class="section-subtitle">Integrating ancient wisdom with modern practices</p>
+            </div>
+            
+            <div class="services-grid">
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M50 10 Q30 30, 30 50 Q30 70, 50 90 Q70 70, 70 50 Q70 30, 50 10" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Body Work</h3>
+                    <p class="service-description">Therapeutic massage techniques that release tension, restore balance, and promote deep healing through mindful touch.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="2" opacity="0.3"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Energy Work</h3>
+                    <p class="service-description">Gentle energy healing practices that clear blockages, restore flow, and awaken your body's natural healing capacity.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <path d="M20 50 Q35 30, 50 50 Q65 70, 80 50" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 60 Q35 40, 50 60 Q65 80, 80 60" fill="none" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Sound Healing</h3>
+                    <p class="service-description">Vibrational therapy using singing bowls, gongs, and voice to harmonize body, mind, and spirit through sacred sound.</p>
+                </article>
+
+                <article class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 100 100">
+                            <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M50 15 L50 85 M15 50 L85 50" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="50" cy="50" r="8" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="service-title">Holistic Integration</h3>
+                    <p class="service-description">Personalized sessions combining multiple modalities to create a comprehensive healing experience tailored to your needs.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 800vh Morphing Journey Section -->
+    <section id="journey" class="morphing-journey">
+        <div class="morphing-viewport">
+            
+            <!-- State 1: Origin (0-200vh) -->
+            <div class="morphing-state" data-state="origin">
+                <div class="morphing-content">
+                    <div class="morphing-visual">
+                        <svg class="morphing-svg" viewBox="0 0 800 800">
+                            <defs>
+                                <radialGradient id="grad1">
+                                    <stop offset="0%" stop-color="#D4A574" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#6B5B95" stop-opacity="0.2"/>
+                                </radialGradient>
+                            </defs>
+                            <circle class="morph-shape" cx="400" cy="400" r="200" fill="url(#grad1)"/>
+                        </svg>
+                    </div>
+                    <div class="morphing-text">
+                        <h2 class="morphing-title">The Beginning</h2>
+                        <p class="morphing-description">Every healing journey starts with a single step toward wholeness</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State 2: Transformation (200-400vh) -->
+            <div class="morphing-state" data-state="transformation">
+                <div class="morphing-content">
+                    <div class="morphing-visual">
+                        <svg class="morphing-svg" viewBox="0 0 800 800">
+                            <defs>
+                                <radialGradient id="grad2">
+                                    <stop offset="0%" stop-color="#A8B5A0" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#D4A59A" stop-opacity="0.3"/>
+                                </radialGradient>
+                            </defs>
+                            <path class="morph-shape" d="M400 150 L550 350 L450 550 L250 550 L150 350 Z" fill="url(#grad2)"/>
+                        </svg>
+                    </div>
+                    <div class="morphing-text">
+                        <h2 class="morphing-title">Beth's Journey</h2>
+                        <p class="morphing-description">Through years of dedicated practice and global exploration, Beth has woven together ancient wisdom from diverse traditions</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State 3: Integration (400-600vh) -->
+            <div class="morphing-state" data-state="integration">
+                <div class="morphing-content">
+                    <div class="morphing-visual">
+                        <svg class="morphing-svg" viewBox="0 0 800 800">
+                            <defs>
+                                <radialGradient id="grad3">
+                                    <stop offset="0%" stop-color="#6B5B95" stop-opacity="0.8"/>
+                                    <stop offset="100%" stop-color="#4A3728" stop-opacity="0.3"/>
+                                </radialGradient>
+                            </defs>
+                            <rect class="morph-shape" x="200" y="200" width="400" height="400" rx="50" fill="url(#grad3)"/>
+                        </svg>
+                    </div>
+                    <div class="morphing-text">
+                        <h2 class="morphing-title">Ancient Meets Modern</h2>
+                        <p class="morphing-description">Yoga philosophy, sound healing traditions, and contemporary bodywork unite in a practice that honors the past while serving the present</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- State 4: Wholeness (600-800vh) -->
+            <div class="morphing-state" data-state="wholeness">
+                <div class="morphing-content">
+                    <div class="morphing-visual">
+                        <svg class="morphing-svg" viewBox="0 0 800 800">
+                            <defs>
+                                <radialGradient id="grad4">
+                                    <stop offset="0%" stop-color="#D4A574" stop-opacity="1"/>
+                                    <stop offset="50%" stop-color="#A8B5A0" stop-opacity="0.6"/>
+                                    <stop offset="100%" stop-color="#6B5B95" stop-opacity="0.2"/>
+                                </radialGradient>
+                            </defs>
+                            <circle class="morph-shape" cx="400" cy="400" r="250" fill="url(#grad4)"/>
+                            <circle class="morph-shape-inner" cx="400" cy="400" r="150" fill="none" stroke="#F5F1E8" stroke-width="3"/>
+                            <circle class="morph-shape-inner" cx="400" cy="400" r="100" fill="none" stroke="#F5F1E8" stroke-width="2" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="morphing-text">
+                        <h2 class="morphing-title">Your Sacred Space</h2>
+                        <p class="morphing-description">At Ancestral Wisdom Healing, you'll find a sanctuary where you can safely explore your own depths and invoke the power of healing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Indicator -->
+            <div class="morphing-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <div class="progress-label">Scroll to continue the journey</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="philosophy">
+        <div class="container">
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <h2 class="section-title">Our Philosophy</h2>
+                    <div class="philosophy-principles">
+                        <div class="principle">
+                            <h3 class="principle-title">Sacred Integration</h3>
+                            <p class="principle-description">We believe healing happens when ancient wisdom meets modern understanding. Every session integrates time-honored traditions with contemporary healing practices.</p>
+                        </div>
+                        <div class="principle">
+                            <h3 class="principle-title">Safe Sanctuary</h3>
+                            <p class="principle-description">Our mission is to create a space where you feel completely held and supported as you explore your own healing journey.</p>
+                        </div>
+                        <div class="principle">
+                            <h3 class="principle-title">Embodied Wisdom</h3>
+                            <p class="principle-description">Through years of global study and practice, we bring authentic yogic values and healing traditions to every interaction.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="philosophy-visual">
+                    <div class="mandala-container">
+                        <svg class="mandala" viewBox="0 0 400 400">
+                            <g class="mandala-layer" transform="translate(200, 200)">
+                                <circle r="150" fill="none" stroke="#D4A574" stroke-width="1" opacity="0.3"/>
+                                <circle r="120" fill="none" stroke="#A8B5A0" stroke-width="1" opacity="0.4"/>
+                                <circle r="90" fill="none" stroke="#6B5B95" stroke-width="1" opacity="0.5"/>
+                                <circle r="60" fill="none" stroke="#D4A59A" stroke-width="1" opacity="0.6"/>
+                                <circle r="30" fill="none" stroke="#4A3728" stroke-width="2" opacity="0.8"/>
+                                <!-- Petals -->
+                                <g class="mandala-petals">
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(45)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(90)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(135)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(180)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(225)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(270)"/>
+                                    <path d="M0,-150 Q30,-120 0,-90 Q-30,-120 0,-150" fill="#D4A574" opacity="0.6" transform="rotate(315)"/>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container-wide">
+            <div class="section-header">
+                <h2 class="section-title">Healing Stories</h2>
+                <p class="section-subtitle">Voices from our community</p>
+            </div>
+            
+            <div class="testimonials-slider">
+                <div class="testimonial-track">
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Beth's healing touch and intuitive approach created a transformative experience. I left feeling lighter, more centered, and deeply at peace."</p>
+                            <div class="testimonial-author">
+                                <strong class="author-name">Sarah M.</strong>
+                                <span class="author-service">Energy Healing Session</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"The sound healing session was unlike anything I've experienced. The vibrations seemed to reach places within me I didn't know needed healing."</p>
+                            <div class="testimonial-author">
+                                <strong class="author-name">Michael R.</strong>
+                                <span class="author-service">Sound Healing</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">"Beth's combination of bodywork and energy healing helped me release years of stored tension. Her space truly is sacred."</p>
+                            <div class="testimonial-author">
+                                <strong class="author-name">Jennifer L.</strong>
+                                <span class="author-service">Holistic Integration</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section class="credentials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Experience & Training</h2>
+            </div>
+            
+            <div class="credentials-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Founded Ancestral Wisdom Healing LLC</h3>
+                        <span class="timeline-year">2020</span>
+                        <p class="timeline-description">Established practice bringing together years of training and global experience</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Global Study & Practice</h3>
+                        <span class="timeline-year">2010-2020</span>
+                        <p class="timeline-description">Traveled worldwide to study with master practitioners in massage, energy work, and sound healing</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Yogic Philosophy Integration</h3>
+                        <span class="timeline-year">Ongoing</span>
+                        <p class="timeline-description">Deep immersion in yogic traditions and values that inform every aspect of healing practice</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Begin Your Healing Journey</h2>
+                <p class="cta-description">Experience the transformative power of integrated healing practices</p>
+                <a href="#contact" class="btn btn-primary btn-large">Schedule a Session</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="contact-description">Ready to explore your healing journey? Reach out to schedule a session or learn more about our services.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
+                            </svg>
+                            <div class="method-info">
+                                <h3 class="method-title">Email</h3>
+                                <a href="mailto:info@ancestralwisdomhealing.com" class="method-value">info@ancestralwisdomhealing.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                            </svg>
+                            <div class="method-info">
+                                <h3 class="method-title">Location</h3>
+                                <p class="method-value">Serving clients in a sacred healing space</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <svg class="contact-icon" viewBox="0 0 24 24">
+                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z" fill="currentColor"/>
+                            </svg>
+                            <div class="method-info">
+                                <h3 class="method-title">Hours</h3>
+                                <p class="method-value">By appointment only</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="service" class="form-label">Interested Service</label>
+                        <select id="service" name="service" class="form-input">
+                            <option value="">Select a service</option>
+                            <option value="bodywork">Body Work</option>
+                            <option value="energy">Energy Work</option>
+                            <option value="sound">Sound Healing</option>
+                            <option value="holistic">Holistic Integration</option>
+                            <option value="consultation">Initial Consultation</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea id="message" name="message" class="form-input form-textarea" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <svg viewBox="0 0 100 100" class="footer-logo">
+                        <circle cx="50" cy="50" r="40" class="logo-circle"/>
+                        <path d="M50 20 L50 80 M20 50 L80 50" class="logo-cross" stroke-width="3"/>
+                    </svg>
+                    <h3 class="footer-title">Ancestral Wisdom Healing</h3>
+                    <p class="footer-tagline">Integrating ancient wisdom with modern practices</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Services</h4>
+                        <ul class="footer-list">
+                            <li><a href="#services">Body Work</a></li>
+                            <li><a href="#services">Energy Work</a></li>
+                            <li><a href="#services">Sound Healing</a></li>
+                            <li><a href="#services">Holistic Integration</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">About</h4>
+                        <ul class="footer-list">
+                            <li><a href="#journey">Beth's Journey</a></li>
+                            <li><a href="#philosophy">Our Philosophy</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Connect</h4>
+                        <ul class="footer-list">
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="mailto:info@ancestralwisdomhealing.com">Email</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2020-2025 Ancestral Wisdom Healing LLC. All rights reserved.</p>
+                <p class="footer-credit">Crafted with intention by <a href="https://clearseassolutions.com" target="_blank" rel="noopener">Clear Seas Solutions</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/parallax-system.js"></script>
+    <script src="assets/js/morphing-controller.js"></script>
+    <script src="assets/js/gsap-animations.js"></script>
+</body>
 </html>
