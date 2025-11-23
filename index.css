@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
+
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      #C72C35 0%,
+      #E97132 15%,
+      #F5C645 30%,
+      #65B891 45%,
+      #5BA3DA 60%,
+      #8B7AB8 75%,
+      #E6C7EB 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient-shift 10s ease infinite;
+  }
+
+  .glass {
+    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+  }
+
+  .sacred-glow {
+    box-shadow:
+      0 0 20px rgba(230, 199, 235, 0.3),
+      0 0 40px rgba(139, 122, 184, 0.2),
+      0 0 60px rgba(91, 163, 218, 0.1);
+  }
+}
