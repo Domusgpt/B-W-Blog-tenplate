@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ChakraMandalaNav from './components/ChakraMandalaNav';
-import HolographicBackground from './components/HolographicBackground';
+import AlgorithmicArtBackground from './components/AlgorithmicArtBackground';
+import FluidDynamics from './components/FluidDynamics';
 import MorphingStory from './components/MorphingStory';
 import Logo from './components/Logo';
 import ParticleField from './components/ParticleField';
@@ -116,15 +117,17 @@ const App: React.FC = () => {
 
   return (
     <div className="relative bg-black text-white overflow-x-hidden">
-      {/* Particle Field */}
-      <ParticleField density={60} />
-
-      {/* WebGL Background */}
-      <HolographicBackground
-        variant={getVariantForSection()}
-        intensity={0.7}
+      {/* Algorithmic Art Background with Advanced Ray Marching */}
+      <AlgorithmicArtBackground
+        complexity={1}
         scrollProgress={scrollProgress}
       />
+
+      {/* Fluid Dynamics Layer */}
+      <FluidDynamics intensity={0.8} />
+
+      {/* Particle Field */}
+      <ParticleField density={80} />
 
       {/* Navigation */}
       <ChakraMandalaNav
