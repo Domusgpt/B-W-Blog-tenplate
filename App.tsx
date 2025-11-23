@@ -4,6 +4,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ChakraMandalaNav from './components/ChakraMandalaNav';
 import HolographicBackground from './components/HolographicBackground';
 import MorphingStory from './components/MorphingStory';
+import Logo from './components/Logo';
+import ParticleField from './components/ParticleField';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -114,6 +116,9 @@ const App: React.FC = () => {
 
   return (
     <div className="relative bg-black text-white overflow-x-hidden">
+      {/* Particle Field */}
+      <ParticleField density={60} />
+
       {/* WebGL Background */}
       <HolographicBackground
         variant={getVariantForSection()}
@@ -134,16 +139,22 @@ const App: React.FC = () => {
         className="relative min-h-screen flex items-center justify-center px-8 overflow-hidden"
       >
         <div className="text-center z-10">
+          {/* Logo */}
+          <div className="mb-8 flex justify-center">
+            <Logo size={180} animate={true} />
+          </div>
+
           <h1
-            className="hero-title text-7xl md:text-9xl font-bold mb-6"
+            className="hero-title text-6xl md:text-8xl font-bold mb-6"
             style={{
               background: 'linear-gradient(135deg, #E6C7EB 0%, #8B7AB8 50%, #5BA3DA 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              textShadow: '0 0 80px rgba(230, 199, 235, 0.5)'
+              textShadow: '0 0 80px rgba(230, 199, 235, 0.5)',
+              fontFamily: 'Kelly Slab, serif'
             }}
           >
-            Ancestral Wisdom
+            Ancestral Wisdom Healing
           </h1>
           <h2 className="hero-subtitle text-3xl md:text-5xl font-light mb-12 text-purple-200">
             Healing Beyond Time & Space
@@ -228,6 +239,24 @@ const App: React.FC = () => {
                 description: 'Receive guidance and clarity through intuitive insights, oracle wisdom, and connection to higher consciousness.',
                 color: '#8B7AB8',
                 icon: '✨'
+              },
+              {
+                title: 'Reiki Healing',
+                description: 'Japanese energy healing technique that promotes relaxation, reduces stress, and supports the body\'s natural healing processes.',
+                color: '#E6C7EB',
+                icon: '🙏'
+              },
+              {
+                title: 'Plant Medicine Ceremonies',
+                description: 'Sacred rituals with traditional plant medicines guided by ancestral wisdom for deep spiritual transformation and healing.',
+                color: '#65B891',
+                icon: '🌿'
+              },
+              {
+                title: 'Breathwork Sessions',
+                description: 'Conscious connected breathing techniques to release emotional blockages, reduce stress, and access expanded states of awareness.',
+                color: '#5BA3DA',
+                icon: '🌬️'
               }
             ].map((service, index) => (
               <div
@@ -291,6 +320,16 @@ const App: React.FC = () => {
                 quote: "Crystal therapy and sound healing have become essential practices in my spiritual journey. Truly life-changing.",
                 author: "David K.",
                 chakra: '#8B7AB8'
+              },
+              {
+                quote: "The Reiki sessions brought me profound peace and balance. I now feel connected to a deeper part of myself.",
+                author: "Amanda T.",
+                chakra: '#E6C7EB'
+              },
+              {
+                quote: "Breathwork opened doors I didn't know existed. Each session reveals new layers of healing and understanding.",
+                author: "Carlos M.",
+                chakra: '#F5C645'
               }
             ].map((testimonial, index) => (
               <div
