@@ -1,0 +1,104 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer components {
+  .service-card {
+    @apply transition-all duration-500 hover:transform hover:scale-105;
+  }
+
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #22d3ee;
+    border-radius: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4;
+  }
+}
+
+@layer utilities {
+  .parallax {
+    will-change: transform;
+  }
+
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .bg-gradient-pastel {
+    background: linear-gradient(135deg,
+      rgba(255, 182, 193, 0.3) 0%,
+      rgba(255, 192, 203, 0.3) 25%,
+      rgba(221, 160, 221, 0.3) 50%,
+      rgba(173, 216, 230, 0.3) 75%,
+      rgba(240, 248, 255, 0.3) 100%
+    );
+  }
+
+  /* Morphing section styles */
+  .morph-logo {
+    will-change: transform, scale;
+    transform-origin: center;
+  }
+
+  .morph-text {
+    will-change: opacity, transform;
+    transform-origin: center;
+  }
+
+  .morph-bg {
+    will-change: background;
+    transition: background 1s ease;
+  }
+
+  .morph-particles {
+    will-change: opacity, transform;
+  }
+}
