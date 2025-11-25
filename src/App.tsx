@@ -1,14 +1,18 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Vib3DVisualizer from './components/Vib3DVisualizer';
 import Menu from './components/Menu';
+import SacredGeometryParallax from './components/SacredGeometryParallax';
+import ChakraText from './components/ChakraText';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null);
+  const [activeChakra, setActiveChakra] = useState<string>('#5BA3DA');
 
   useEffect(() => {
     // Hero fade-in animations
@@ -22,7 +26,7 @@ const App: React.FC = () => {
       });
     }
 
-    // Service card animations
+    // Service card animations with chakra glow
     gsap.utils.toArray('.service-card').forEach((card: any) => {
       gsap.from(card, {
         scrollTrigger: {
@@ -35,9 +39,32 @@ const App: React.FC = () => {
         duration: 0.8,
         ease: 'power2.out'
       });
+
+      // Add mouse move parallax effect to cards
+      card.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        gsap.to(card, {
+          rotationY: x * 10,
+          rotationX: -y * 10,
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotationY: 0,
+          rotationX: 0,
+          duration: 0.5,
+          ease: 'power2.out'
+        });
+      });
     });
 
-    // Section headers
+    // Section headers with color wave
     gsap.utils.toArray('.section-header').forEach((header: any) => {
       gsap.from(header, {
         scrollTrigger: {
@@ -49,6 +76,23 @@ const App: React.FC = () => {
         y: 40,
         duration: 0.9,
         ease: 'power3.out'
+      });
+    });
+
+    // Animate highlighted text colors
+    gsap.utils.toArray('.chakra-highlight').forEach((text: any) => {
+      ScrollTrigger.create({
+        trigger: text,
+        start: 'top 80%',
+        onEnter: () => {
+          gsap.to(text, {
+            textShadow: '0 0 20px currentColor, 0 0 40px currentColor',
+            duration: 1,
+            ease: 'power2.inOut',
+            yoyo: true,
+            repeat: -1
+          });
+        }
       });
     });
   }, []);
@@ -63,6 +107,7 @@ const App: React.FC = () => {
   return (
     <div className="relative bg-black text-white min-h-screen overflow-x-hidden">
       <Vib3DVisualizer variant={3} reactivity={1.5} />
+      <SacredGeometryParallax isActive={hoveredCard !== null} chakraColor={activeChakra} />
       <Menu sections={menuSections} />
 
       {/* Hero Section */}
@@ -87,7 +132,9 @@ const App: React.FC = () => {
           </div>
         </div>
         <h1 className="fade-in text-4xl md:text-6xl lg:text-7xl font-light mb-6 leading-tight" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
-          Vis Medicatrix Naturae
+          <ChakraText animated={true} glowOnHover={true}>
+            Vis Medicatrix Naturae
+          </ChakraText>
         </h1>
         <p className="fade-in text-lg md:text-xl lg:text-2xl font-light tracking-wide text-gray-400 mb-12" style={{fontFamily: 'serif'}}>
           The Healing Power Of Nature
@@ -118,7 +165,7 @@ const App: React.FC = () => {
             </div>
           </div>
           <p className="text-xl md:text-2xl leading-relaxed text-center text-gray-300 font-light" style={{fontFamily: 'serif'}}>
-            Ancestral Wisdom Healing LLC offers a <span className="text-cyan-400">holistic approach</span> to everyday well-being through massage, energy work, and sound healing. Founded in 2020 by Beth Connelly, our mission is to create a safe and comfortable space where clients can explore their own depths to invoke the power of healing—integrating <span className="text-cyan-400">ancient wisdom</span> with modern practices.
+            Ancestral Wisdom Healing LLC offers a <span className="text-cyan-400 chakra-highlight">holistic approach</span> to everyday well-being through massage, energy work, and sound healing. Founded in 2020 by Beth Connelly, our mission is to create a safe and comfortable space where clients can explore their own depths to invoke the power of healing—integrating <span className="text-cyan-400 chakra-highlight">ancient wisdom</span> with modern practices.
           </p>
         </div>
       </section>
@@ -140,12 +187,28 @@ const App: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {bodyworkServices.map((service, index) => (
-                <div key={index} className="service-card group">
-                  <div className="border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm">
-                    <h4 className="text-2xl mb-4 group-hover:text-cyan-400 transition-colors duration-300" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
+                <div
+                  key={index}
+                  className="service-card group"
+                  style={{ perspective: '1000px' }}
+                  onMouseEnter={() => {
+                    setHoveredCard(`bodywork-${index}`);
+                    setActiveChakra('#5BA3DA'); // Throat chakra (cyan)
+                  }}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className="border border-gray-800 hover:border-cyan-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0" style={{
+                        background: 'radial-gradient(circle at 50% 50%, rgba(91, 163, 218, 0.3), transparent 70%)',
+                        filter: 'blur(20px)',
+                        animation: 'pulse-glow 2s ease-in-out infinite'
+                      }}></div>
+                    </div>
+                    <h4 className="text-2xl mb-4 group-hover:text-cyan-400 transition-colors duration-300 relative z-10" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
                       {service.title}
                     </h4>
-                    <p className="text-gray-400 leading-relaxed text-sm">
+                    <p className="text-gray-400 leading-relaxed text-sm relative z-10">
                       {service.description}
                     </p>
                   </div>
@@ -161,12 +224,28 @@ const App: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {energyServices.map((service, index) => (
-                <div key={index} className="service-card group">
-                  <div className="border border-gray-800 hover:border-purple-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-purple-900/20 to-black/50 backdrop-blur-sm">
-                    <h4 className="text-2xl mb-4 group-hover:text-purple-400 transition-colors duration-300" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
+                <div
+                  key={index}
+                  className="service-card group"
+                  style={{ perspective: '1000px' }}
+                  onMouseEnter={() => {
+                    setHoveredCard(`energy-${index}`);
+                    setActiveChakra('#8B7AB8'); // Third eye chakra (purple)
+                  }}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className="border border-gray-800 hover:border-purple-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-purple-900/20 to-black/50 backdrop-blur-sm relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0" style={{
+                        background: 'radial-gradient(circle at 50% 50%, rgba(139, 122, 184, 0.4), transparent 70%)',
+                        filter: 'blur(20px)',
+                        animation: 'pulse-glow 2s ease-in-out infinite'
+                      }}></div>
+                    </div>
+                    <h4 className="text-2xl mb-4 group-hover:text-purple-400 transition-colors duration-300 relative z-10" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
                       {service.title}
                     </h4>
-                    <p className="text-gray-400 leading-relaxed text-sm">
+                    <p className="text-gray-400 leading-relaxed text-sm relative z-10">
                       {service.description}
                     </p>
                   </div>
@@ -182,12 +261,28 @@ const App: React.FC = () => {
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {classServices.map((service, index) => (
-                <div key={index} className="service-card group">
-                  <div className="border border-gray-800 hover:border-pink-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-pink-900/20 to-black/50 backdrop-blur-sm">
-                    <h4 className="text-2xl mb-4 group-hover:text-pink-400 transition-colors duration-300" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
+                <div
+                  key={index}
+                  className="service-card group"
+                  style={{ perspective: '1000px' }}
+                  onMouseEnter={() => {
+                    setHoveredCard(`class-${index}`);
+                    setActiveChakra('#E6C7EB'); // Crown chakra (pink/lavender)
+                  }}
+                  onMouseLeave={() => setHoveredCard(null)}
+                >
+                  <div className="border border-gray-800 hover:border-pink-400/50 transition-all duration-500 p-8 h-full bg-gradient-to-br from-pink-900/20 to-black/50 backdrop-blur-sm relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                      <div className="absolute inset-0" style={{
+                        background: 'radial-gradient(circle at 50% 50%, rgba(230, 199, 235, 0.4), transparent 70%)',
+                        filter: 'blur(20px)',
+                        animation: 'pulse-glow 2s ease-in-out infinite'
+                      }}></div>
+                    </div>
+                    <h4 className="text-2xl mb-4 group-hover:text-pink-400 transition-colors duration-300 relative z-10" style={{fontFamily: 'serif', fontStyle: 'italic'}}>
                       {service.title}
                     </h4>
-                    <p className="text-gray-400 leading-relaxed text-sm">
+                    <p className="text-gray-400 leading-relaxed text-sm relative z-10">
                       {service.description}
                     </p>
                   </div>

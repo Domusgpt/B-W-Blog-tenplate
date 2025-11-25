@@ -249,6 +249,16 @@ html {
   transform: rotateY(5deg) rotateX(5deg) scale(1.05);
 }
 
+/* Service card enhancements */
+.service-card {
+  transform-style: preserve-3d;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+}
+
 /* Parallax layers */
 .parallax {
   transform: translateZ(0);
@@ -413,4 +423,104 @@ html {
   .no-print {
     display: none;
   }
+}
+
+/* Chakra character animation */
+.chakra-char {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chakra-char:hover {
+  filter: brightness(1.5);
+}
+
+/* Interactive glow effects */
+.chakra-glow-root {
+  box-shadow: 0 0 30px var(--chakra-root), 0 0 60px var(--chakra-root);
+}
+
+.chakra-glow-sacral {
+  box-shadow: 0 0 30px var(--chakra-sacral), 0 0 60px var(--chakra-sacral);
+}
+
+.chakra-glow-solar {
+  box-shadow: 0 0 30px var(--chakra-solar), 0 0 60px var(--chakra-solar);
+}
+
+.chakra-glow-heart {
+  box-shadow: 0 0 30px var(--chakra-heart), 0 0 60px var(--chakra-heart);
+}
+
+.chakra-glow-throat {
+  box-shadow: 0 0 30px var(--chakra-throat), 0 0 60px var(--chakra-throat);
+}
+
+.chakra-glow-third-eye {
+  box-shadow: 0 0 30px var(--chakra-third-eye), 0 0 60px var(--chakra-third-eye);
+}
+
+.chakra-glow-crown {
+  box-shadow: 0 0 30px var(--chakra-crown), 0 0 60px var(--chakra-crown);
+}
+
+/* Enhanced sacred geometry animations */
+@keyframes sacred-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.sacred-rotate {
+  animation: sacred-rotate 30s linear infinite;
+}
+
+/* Chakra highlight pulse */
+.chakra-highlight {
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.chakra-highlight:hover {
+  transform: scale(1.05);
+  filter: brightness(1.3);
+}
+
+/* Mouse trail effect */
+@keyframes trail-fade {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
+}
+
+.mouse-trail {
+  animation: trail-fade 1s ease-out forwards;
+}
+
+/* Breathing animation for sacred geometry */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
 }
