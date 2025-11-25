@@ -33,6 +33,8 @@ const Menu: React.FC<MenuProps> = ({ sections }) => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="fixed top-6 right-6 z-[100] border border-white px-6 py-2.5 text-sm tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300 bg-black/30 backdrop-blur-sm"
+        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        aria-expanded={isOpen}
       >
         {isOpen ? 'CLOSE' : 'MENU'}
       </button>
@@ -42,15 +44,19 @@ const Menu: React.FC<MenuProps> = ({ sections }) => {
         className={`fixed inset-0 z-[90] bg-black/95 backdrop-blur-xl transition-all duration-500 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
       >
         <div className="flex flex-col items-end justify-center h-full pr-12 md:pr-24">
-          <nav className="space-y-6">
+          <nav className="space-y-6" aria-label="Main navigation">
             {sections.map((section, index) => (
               <button
                 key={section.id}
                 onClick={() => scrollToSection(section.id)}
                 className="menu-item block text-right text-3xl md:text-5xl font-light hover:text-cyan-400 transition-colors duration-300 tracking-wide"
                 style={{ fontFamily: 'serif', fontStyle: 'italic' }}
+                aria-label={`Navigate to ${section.label} section`}
               >
                 {section.label}
               </button>

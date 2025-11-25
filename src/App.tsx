@@ -66,10 +66,10 @@ const App: React.FC = () => {
       <Menu sections={menuSections} />
 
       {/* Hero Section */}
-      <section id="home" ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center text-center px-6">
+      <section id="home" ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center text-center px-6" aria-label="Hero section">
         <div className="fade-in mb-12">
-          <div className="w-40 h-40 md:w-56 md:h-56 mx-auto mb-8 rounded-full border-2 border-cyan-400/60 flex items-center justify-center">
-            <svg className="w-28 h-28 md:w-40 md:h-40" viewBox="0 0 100 100">
+          <div className="w-40 h-40 md:w-56 md:h-56 mx-auto mb-8 rounded-full border-2 border-cyan-400/60 flex items-center justify-center" aria-hidden="true">
+            <svg className="w-28 h-28 md:w-40 md:h-40" viewBox="0 0 100 100" role="img" aria-label="Sacred geometry logo">
               <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400/80"/>
               <path d="M50,10 L50,90 M10,50 L90,50 M25,25 L75,75 M75,25 L25,75" stroke="currentColor" strokeWidth="0.3" className="text-purple-400/60"/>
               {[...Array(8)].map((_, i) => {
@@ -95,6 +95,7 @@ const App: React.FC = () => {
         <button
           onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
           className="fade-in border border-white/50 px-8 py-3 text-sm tracking-[0.3em] hover:bg-white hover:text-black transition-all duration-300"
+          aria-label="Explore our services"
         >
           EXPLORE
         </button>
