@@ -101,4 +101,120 @@
   .morph-particles {
     will-change: opacity, transform;
   }
+
+  /* Sacred Geometry Animations */
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin-reverse {
+    from {
+      transform: rotate(360deg);
+    }
+    to {
+      transform: rotate(0deg);
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.5;
+      filter: blur(20px);
+    }
+    50% {
+      opacity: 0.8;
+      filter: blur(25px);
+    }
+  }
+
+  @keyframes geometry-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(90deg);
+    }
+    50% {
+      transform: translateY(-5px) rotate(180deg);
+    }
+    75% {
+      transform: translateY(-15px) rotate(270deg);
+    }
+  }
+
+  @keyframes sacred-breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+  }
+
+  @keyframes chakra-wave {
+    0% {
+      stroke-dashoffset: 0;
+    }
+    100% {
+      stroke-dashoffset: 1000;
+    }
+  }
+
+  @keyframes mandala-spin {
+    from {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.02);
+    }
+    to {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+
+  @keyframes energy-pulse {
+    0%, 100% {
+      box-shadow: 0 0 5px currentColor,
+                  0 0 10px currentColor,
+                  0 0 15px currentColor;
+    }
+    50% {
+      box-shadow: 0 0 10px currentColor,
+                  0 0 20px currentColor,
+                  0 0 30px currentColor,
+                  0 0 40px currentColor;
+    }
+  }
+
+  /* Geometry utility classes */
+  .geometry-float {
+    animation: geometry-float 20s ease-in-out infinite;
+  }
+
+  .sacred-breathe {
+    animation: sacred-breathe 4s ease-in-out infinite;
+  }
+
+  .spin-slow {
+    animation: spin-slow 40s linear infinite;
+  }
+
+  .spin-reverse {
+    animation: spin-reverse 30s linear infinite;
+  }
+
+  .mandala-spin {
+    animation: mandala-spin 60s ease-in-out infinite;
+  }
+
+  .energy-pulse {
+    animation: energy-pulse 3s ease-in-out infinite;
+  }
 }

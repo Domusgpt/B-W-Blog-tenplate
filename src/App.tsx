@@ -5,6 +5,9 @@ import Vib3DVisualizer from './components/Vib3DVisualizer';
 import Menu from './components/Menu';
 import SacredGeometryParallax from './components/SacredGeometryParallax';
 import ChakraText from './components/ChakraText';
+import AnimatedLogo from './components/AnimatedLogo';
+import GeometricDivider from './components/GeometricDivider';
+import FloatingGeometry from './components/FloatingGeometry';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -107,25 +110,15 @@ const App: React.FC = () => {
   return (
     <div className="relative bg-black text-white min-h-screen overflow-x-hidden">
       <Vib3DVisualizer variant={3} reactivity={1.5} />
+      <FloatingGeometry particleCount={15} speed={0.8} />
       <SacredGeometryParallax isActive={hoveredCard !== null} chakraColor={activeChakra} />
       <Menu sections={menuSections} />
 
       {/* Hero Section */}
       <section id="home" ref={heroRef} className="relative min-h-screen flex flex-col items-center justify-center text-center px-6" aria-label="Hero section">
         <div className="fade-in mb-12">
-          <div className="w-40 h-40 md:w-56 md:h-56 mx-auto mb-8 rounded-full border-2 border-cyan-400/60 flex items-center justify-center" aria-hidden="true">
-            <svg className="w-28 h-28 md:w-40 md:h-40" viewBox="0 0 100 100" role="img" aria-label="Sacred geometry logo">
-              <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400/80"/>
-              <path d="M50,10 L50,90 M10,50 L90,50 M25,25 L75,75 M75,25 L25,75" stroke="currentColor" strokeWidth="0.3" className="text-purple-400/60"/>
-              {[...Array(8)].map((_, i) => {
-                const angle = (i * 45 * Math.PI) / 180;
-                const x1 = 50 + 20 * Math.cos(angle);
-                const y1 = 50 + 20 * Math.sin(angle);
-                const x2 = 50 + 35 * Math.cos(angle);
-                const y2 = 50 + 35 * Math.sin(angle);
-                return <circle key={i} cx={x2} cy={y2} r="6" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-cyan-400/70"/>;
-              })}
-            </svg>
+          <div className="mx-auto mb-8 flex items-center justify-center" aria-hidden="true">
+            <AnimatedLogo size={240} className="w-40 h-40 md:w-60 md:h-60" />
           </div>
           <div className="text-xl md:text-2xl font-light tracking-[0.25em] mb-4 text-gray-300" style={{fontFamily: 'serif'}}>
             ANCESTRAL WISDOM HEALING
@@ -148,27 +141,20 @@ const App: React.FC = () => {
         </button>
       </section>
 
+      {/* Geometric Divider */}
+      <GeometricDivider variant="vesica-piscis" color="#5BA3DA" />
+
       {/* Mission Statement */}
       <section className="relative py-24 px-6 bg-gradient-to-b from-black via-gray-900 to-black">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="w-24 h-24 mx-auto mb-6 opacity-60">
-              <svg className="w-full h-full" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400"/>
-                {[...Array(12)].map((_, i) => {
-                  const angle = (i * 30 * Math.PI) / 180;
-                  const x = 50 + 30 * Math.cos(angle);
-                  const y = 50 + 30 * Math.sin(angle);
-                  return <circle key={i} cx={x} cy={y} r="4" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-cyan-400"/>;
-                })}
-              </svg>
-            </div>
-          </div>
           <p className="text-xl md:text-2xl leading-relaxed text-center text-gray-300 font-light" style={{fontFamily: 'serif'}}>
             Ancestral Wisdom Healing LLC offers a <span className="text-cyan-400 chakra-highlight">holistic approach</span> to everyday well-being through massage, energy work, and sound healing. Founded in 2020 by Beth Connelly, our mission is to create a safe and comfortable space where clients can explore their own depths to invoke the power of healing—integrating <span className="text-cyan-400 chakra-highlight">ancient wisdom</span> with modern practices.
           </p>
         </div>
       </section>
+
+      {/* Geometric Divider */}
+      <GeometricDivider variant="seed-of-life" color="#5BA3DA" />
 
       {/* Services Section */}
       <section id="services" className="relative py-32 px-6 bg-black">
@@ -293,6 +279,9 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Geometric Divider */}
+      <GeometricDivider variant="hexagon-flower" color="#8B7AB8" />
+
       {/* About Beth */}
       <section id="about" className="relative py-32 px-6 bg-gradient-to-b from-black via-gray-900 to-black">
         <div className="max-w-6xl mx-auto">
@@ -356,19 +345,14 @@ const App: React.FC = () => {
         </div>
       </section>
 
+      {/* Geometric Divider */}
+      <GeometricDivider variant="triangle-grid" color="#E6C7EB" />
+
       {/* Contact Section */}
       <section id="contact" className="relative py-32 px-6 bg-black">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="w-32 h-32 mx-auto mb-8">
-            <svg className="w-full h-full" viewBox="0 0 100 100">
-              <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400"/>
-              {[...Array(8)].map((_, i) => {
-                const angle = (i * 45 * Math.PI) / 180;
-                const x = 50 + 30 * Math.cos(angle);
-                const y = 50 + 30 * Math.sin(angle);
-                return <line key={i} x1="50" y1="50" x2={x} y2={y} stroke="currentColor" strokeWidth="0.3" className="text-cyan-400"/>;
-              })}
-            </svg>
+          <div className="mx-auto mb-8 flex justify-center">
+            <AnimatedLogo size={150} />
           </div>
 
           <h2 className="text-2xl mb-2 tracking-[0.2em] font-light text-gray-400" style={{fontFamily: 'serif'}}>
@@ -422,17 +406,7 @@ const App: React.FC = () => {
 
       {/* Footer */}
       <footer className="relative py-16 px-6 bg-gray-900 text-center border-t border-gray-800">
-        <div className="w-20 h-20 mx-auto mb-6 opacity-40">
-          <svg className="w-full h-full" viewBox="0 0 100 100">
-            <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-cyan-400"/>
-            {[...Array(8)].map((_, i) => {
-              const angle = (i * 45 * Math.PI) / 180;
-              const x = 50 + 30 * Math.cos(angle);
-              const y = 50 + 30 * Math.sin(angle);
-              return <circle key={i} cx={x} cy={y} r="8" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-cyan-400"/>;
-            })}
-          </svg>
-        </div>
+        <GeometricDivider variant="seed-of-life" color="#5BA3DA" className="mb-4 opacity-60" />
 
         <div className="flex justify-center gap-8 mb-6">
           <a href="tel:6096619773" className="hover:text-cyan-400 transition-colors" aria-label="Phone">
